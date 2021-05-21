@@ -2,6 +2,7 @@ package comparation;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Test2 {
@@ -17,13 +18,13 @@ public class Test2 {
         System.out.println("Before sorted");
         System.out.println(list);
         System.out.println("After sorted");
-        Collections.sort(list);
+        Collections.sort(list,new NameComparator());
         System.out.println(list);
     }
 
 }
 
-class Employee implements Comparable<Employee>{
+class Employee implements Comparable<Employee> {
     int id;
     String name;
     String surname;
@@ -48,19 +49,47 @@ class Employee implements Comparable<Employee>{
 
     @Override
     public int compareTo(Employee anotherEmp) {
-//        if(this.id == anotherEmp.id){
+        if(this.id == anotherEmp.id){
+            return  0;
+        }else if(this.id <anotherEmp.id){
+            return -1;
+        }else {
+            return 1;
+        }
+//        return this.id- anotherEmp.id;
+////        return this.id.compareTo(anotherEmp.id);
+//        int res = this.name.compareTo(anotherEmp.name);
+//        if(res==0){
+//            res = this.surname.compareTo(anotherEmp.surname);
+//        }
+//        return res;
+    }
+}
+
+//class IdComparator implements Comparator<Employee>{
+//
+//    @Override
+//    public int compare(Employee emp1, Employee emp2) {
+//        if(emp1.id == emp2.id){
 //            return  0;
-//        }else if(this.id <anotherEmp.id){
+//        }else if(emp1.id <emp2.id){
 //            return -1;
 //        }else {
 //            return 1;
 //        }
-//        return this.id- anotherEmp.id;
-//        return this.id.compareTo(anotherEmp.id);
-        int res = this.name.compareTo(anotherEmp.name);
-        if(res==0){
-            res = this.surname.compareTo(anotherEmp.surname);
-        }
-        return res;
+//    }
+//}
+
+class NameComparator implements Comparator<Employee>{
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+       return emp1.name.compareTo(emp2.name);
+    }
+}
+
+class salaryComparator implements Comparator<Employee>{
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+       return emp1.salary-emp2.salary;
     }
 }
