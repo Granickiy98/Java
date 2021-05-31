@@ -1,10 +1,12 @@
 package collection.Map;
 
+
+
 import java.util.Hashtable;
 
 public class HashTAble {
     public static void main(String[] args) {
-        Hashtable<Double,Student> hashtable = new Hashtable<>();
+        Hashtable<Double, Student> hashtable = new Hashtable<>();
         Student st1 = new Student("Yra","Granickiy",5);
         Student st2 = new Student("Ivan","Ivanov",4);
         Student st3 = new Student("Petr","Petrov",3);

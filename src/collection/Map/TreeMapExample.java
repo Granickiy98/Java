@@ -1,5 +1,4 @@
 package collection.Map;
-
 import java.util.TreeMap;
 
 public class TreeMapExample {
