@@ -1,6 +1,5 @@
-package collection.Set;
+package collection.Set.HashSet;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 

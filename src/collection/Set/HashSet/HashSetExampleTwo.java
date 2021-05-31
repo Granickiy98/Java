@@ -1,4 +1,4 @@
-package collection.Set;
+package collection.Set.HashSet;
 
 import java.util.HashSet;
 
