@@ -3,7 +3,9 @@ package lambda;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.Function;
 
 public class StudentInfo  {
 
@@ -32,14 +34,28 @@ class Test{
         students.add(st5);
 
         StudentInfo info = new StudentInfo();
+        double res = avgOfSmth(students,student -> (double)student.age);
+        System.out.println(res);
 
-        Predicate<Student> p1 = student -> student.age<28;
 
-        info.testStudents(students, student->student.avgGrade>8);
-        System.out.println("-------------------------");
-        info.testStudents(students,p1);
-        System.out.println("-------------------------");
-        info.testStudents(students,student -> student.age>20 && student.sex == 'f' && student.avgGrade < 9.5);
+//        Predicate<Student> p1 = student -> student.age<28;
+//
+//        info.testStudents(students, student->student.avgGrade>8);
+//        System.out.println("-------------------------");
+//        info.testStudents(students,p1);
+//        System.out.println("-------------------------");
+//        info.testStudents(students,student -> student.age>20 && student.sex == 'f' && student.avgGrade < 9.5);
+
+
+
+    }
+    private  static  double avgOfSmth(List<Student> studentList,Function<Student,Double> function){
+        double result = 0;
+        for (Student s : studentList){
+            result+=function.apply(s);
+        }
+        result = result/studentList.size();
+        return result;
     }
 }
 
