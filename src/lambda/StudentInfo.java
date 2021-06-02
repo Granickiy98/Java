@@ -3,12 +3,13 @@ package lambda;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class StudentInfo  {
 
-    void testStudents(ArrayList<Student> arrayList , StudentChecks sc){
+    void testStudents(ArrayList<Student> arrayList , Predicate<Student> studentPredicate){
         for(Student s : arrayList){
-            if (sc.check(s)){
+            if (studentPredicate.test(s)){
                 System.out.println(s);
             }
         }
@@ -32,27 +33,13 @@ class Test{
 
         StudentInfo info = new StudentInfo();
 
-        Collections.sort(students,(s1,s2)->s1.course-s2.course);
-        System.out.println(students);
+        Predicate<Student> p1 = student -> student.age<28;
 
-//        info.testStudents(students, student->student.avgGrade>8);
-//        System.out.println("-------------------------");
-//        StudentChecks cs = (Student s) ->{return s.avgGrade>8.2;};
-//        info.testStudents(students,cs);
-//        System.out.println("-------------------------");
-//        info.testStudents(students,student ->student.age <30);
-//        System.out.println("-------------------------");
-//        info.testStudents(students,student -> student.age>20 && student.sex == 'f' && student.avgGrade < 9.5);
-//        info.printStudentOverGrade(students,8.0);
-//        System.out.println("-------------------------");
-//        info.printStudentUnderAge(students,30);
-//        System.out.println("-------------------------");
-//        info.printStudentMixCondition(students,9.5,20,'f');
-//        System.out.println("-------------------------");
-
+        info.testStudents(students, student->student.avgGrade>8);
+        System.out.println("-------------------------");
+        info.testStudents(students,p1);
+        System.out.println("-------------------------");
+        info.testStudents(students,student -> student.age>20 && student.sex == 'f' && student.avgGrade < 9.5);
     }
 }
 
-interface StudentChecks{
-    boolean check(Student student);
-}
