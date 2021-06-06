@@ -10,13 +10,17 @@ public class Filter {
         Student st2 = new Student("Vlad",'m',21,4,7.6);
         Student st3 = new Student("Dima",'m',18,1,8.8);
         Student st4 = new Student("Marina",'f',22,5,9.0);
-        Student st5 = new Student("Lena",'f',19,2,7.1);
+        Student st5 = new Student("Elena",'f',19,2,7.1);
         List<Student> studentList = new ArrayList<>();
         studentList.add(st1);
         studentList.add(st2);
         studentList.add(st3);
         studentList.add(st4);
         studentList.add(st5);
+
+       studentList = studentList.stream().sorted((x,y)->
+               x.getName().compareTo(y.getName())).collect(Collectors.toList());
+       System.out.println("Sorted"+studentList);
 
       studentList =  studentList.stream().filter(element
                 ->element.getAge() > 18 && element.getAvgGrade() < 7.2)
