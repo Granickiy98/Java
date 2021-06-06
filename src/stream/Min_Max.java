@@ -21,5 +21,7 @@ public class Min_Max {
             System.out.println(student_min);
             Student student_max = studentList.stream().max((x,y)->x.getAge()- y.getAge()).get();
             System.out.println(student_max);
+            System.out.println("----------------");
+            studentList.stream().filter(student -> student.getAge()>18).limit(2).forEach(System.out::println);
     }
 }
