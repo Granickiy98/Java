@@ -18,14 +18,25 @@ public class Filter {
         studentList.add(st4);
         studentList.add(st5);
 
-       studentList = studentList.stream().sorted((x,y)->
-               x.getName().compareTo(y.getName())).collect(Collectors.toList());
-       System.out.println("Sorted"+studentList);
+        studentList.stream().map(element ->
+        {
+            element.setName(element.getName().toUpperCase());
+            return element;
+        })
+                .filter(element -> element.getSex() =='m')
+                .sorted((x,y)->x.getAge()-y.getAge())
+                .forEach(element -> System.out.println(element));
 
-      studentList =  studentList.stream().filter(element
-                ->element.getAge() > 18 && element.getAvgGrade() < 7.2)
-                .collect(Collectors.toList());
-        System.out.println(studentList);
+
+
+//       studentList = studentList.stream().sorted((x,y)->
+//               x.getName().compareTo(y.getName())).collect(Collectors.toList());
+//       System.out.println("Sorted"+studentList);
+
+//      studentList =  studentList.stream().filter(element
+//                ->element.getAge() > 18 && element.getAvgGrade() < 7.2)
+//                .collect(Collectors.toList());
+//        System.out.println(studentList);
 
     }
 }
