@@ -18,10 +18,17 @@ public class Min_Max {
         studentList.add(st5);
 
             Student student_min = studentList.stream().min((x,y)->x.getAge()- y.getAge()).get();
-            System.out.println(student_min);
+            System.out.println();
+            System.out.println("Student min: "+student_min);
+            System.out.println("----------------");
             Student student_max = studentList.stream().max((x,y)->x.getAge()- y.getAge()).get();
-            System.out.println(student_max);
+            System.out.println("Student max: "+student_max);
+            System.out.println("----------------");
+            studentList.stream().filter(student -> student.getAge()>18).forEach(System.out::println);
             System.out.println("----------------");
             studentList.stream().filter(student -> student.getAge()>18).limit(2).forEach(System.out::println);
+            System.out.println("----------------");
+            studentList.stream().filter(student -> student.getAge()>18).skip(2).forEach(System.out::println);
+
     }
 }
