@@ -30,6 +30,7 @@ public class Collect {
       Map<Boolean,List<Student>> map =
                 students.stream()
                 .collect(Collectors.partitioningBy(student -> student.getAvgGrade()>8));
+
         for (Map.Entry<Boolean,List<Student>> entry : map.entrySet()){
             System.out.println(entry.getKey()+":"+entry.getValue().toString());
         }

@@ -18,14 +18,24 @@ public class Filter {
         studentList.add(st4);
         studentList.add(st5);
 
-        studentList.stream().map(element ->
+//        studentList.stream().map(element ->
+//        {
+//            element.setName(element.getName().toUpperCase());
+//            return element;
+//        })
+//                .filter(element -> element.getSex() =='m')
+//                .sorted((x,y)->x.getAge()-y.getAge())
+//                .forEach(element -> System.out.println(element));
+
+    Student first =   studentList.stream().map(element ->
         {
             element.setName(element.getName().toUpperCase());
             return element;
         })
                 .filter(element -> element.getSex() =='m')
                 .sorted((x,y)->x.getAge()-y.getAge())
-                .forEach(element -> System.out.println(element));
+                .findFirst().get();
+        System.out.println(first);
 
 
 
