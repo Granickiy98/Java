@@ -1,7 +1,7 @@
 package multithreading;
 
 public class Ex11 {
-    volatile static  int counter =0;
+    static  int counter =0;
     public static synchronized void increment(){counter++;}
 
     public static void main(String[] args) throws InterruptedException {
