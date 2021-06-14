@@ -7,10 +7,14 @@ public class CallableFactorial {
 
     public static void main(String[] args) {
         ExecutorService service = Executors.newSingleThreadExecutor();
-        Factorial2 factorial2 = new Factorial2(10);
+        Factorial2 factorial2 = new Factorial2(6);
         Future<Integer> future = service.submit(factorial2);
         try {
+            System.out.println(future.isDone());
+            System.out.println("Want to get the result");
             factorialResult = future.get();
+            System.out.println("Got the result");
+            System.out.println(future.isDone());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -31,11 +35,12 @@ class Factorial2 implements Callable<Integer>{
     @Override
     public Integer call() throws Exception {
         if(f<=0){
-            throw new Exception("Vi vveli nevernoe chislo");
+            throw new Exception("You entered an invalid number");
         }
         int result = 1;
         for(int i =1;i<=f;i++){
             result*=i;
+            Thread.sleep(1000);
         }
         return result;
     }
