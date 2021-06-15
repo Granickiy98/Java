@@ -31,7 +31,7 @@ class Person extends  Thread{
             callBox.acquire();
             System.out.println(name + " use phone");
             sleep(2000);
-            System.out.println(name + "ends call");
+            System.out.println(name + " ends call");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
