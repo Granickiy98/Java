@@ -16,8 +16,7 @@ public class ArrayBlockingQueueEx2 {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-                ;
+                };
             }
         }).start();
         //Consumer
