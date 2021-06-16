@@ -10,8 +10,9 @@ import java.io.ObjectInputStream;
 public class SerializationEx2 {
     public static void main(String[] args) {
         Employees best_employees ;
+
         try(ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("employees2.bin"))) {
-            best_employees = (Employees)inputStream.readObject();
+            best_employees = (Employees) inputStream.readObject();
             System.out.println(best_employees);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
