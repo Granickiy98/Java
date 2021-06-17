@@ -51,9 +51,5 @@ public class FileEx {
         System.out.println("File canWrite : " + file.canWrite());
         System.out.println("File canExecute : " + file.canExecute());
 
-
-
-
-
     }
 }
