@@ -29,6 +29,17 @@ public class ChanelBufferEx1 {
             }
             System.out.println(stringb);
 
+            String text = "\nPoets with whom I learned my trade.\n" +
+                    "Companions of the Cheshire Cheese,\n" +
+                    "Here's an old story I've remade,";
+
+//            ByteBuffer buffer2 = ByteBuffer.allocate(text.getBytes().length);
+//            buffer2.put(text.getBytes());
+//            buffer2.flip();
+//            channel.write(buffer2);
+            ByteBuffer buffer3 = ByteBuffer.wrap(text.getBytes());
+            channel.write(buffer3);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
